@@ -3,15 +3,43 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <!-- Thème Bootstrap -->
+        <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.rtl.min.css">
+        <!-- Font Awesome pour les icônes -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        
+        <style>
+            body {
+                background-image: url('{{ asset('Fond.webp') }}');
+                background-size: cover; /* Adapte l'image à la taille de l'écran */
+                background-repeat: no-repeat; /* Empêche la répétition */
+                background-attachment: fixed; /* Rend le fond fixe lors du défilement */
+                background-position: center; /* Centre l'image */
+            }
+             .text-container {
+                background-color: rgba(255, 255, 255, 0.5); /* Blanc translucide */
+                border-radius: 10px; /* Coins arrondis */
+                padding: 20px; /* Espacement interne */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre pour l'effet visuel */
+                margin-bottom: 20px; /* Espacement entre les blocs */
+            }
+        </style>
+
         {% block stylesheets %}
         {% endblock %}
+    </head>
+    <body>
+        <!-- Bouton vers la page d'accueil -->
+        <div class="position-fixed top-0 start-0 m-3">
+            <a href="{{ path('app_home') }}" class="btn btn-primary">
+                <i class="fas fa-home"></i> Accueil
+            </a>
+        </div>
+
+        {% block body %}{% endblock %}
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
     </body>
 </html>
