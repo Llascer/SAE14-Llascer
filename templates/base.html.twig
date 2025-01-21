@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -16,8 +16,8 @@
                 background-attachment: fixed; /* Rend le fond fixe lors du défilement */
                 background-position: center; /* Centre l'image */
             }
-             .text-container {
-                background-color: rgba(255, 255, 255, 0.5); /* Blanc translucide */
+            .text-container {
+                background-color: rgba(255, 255, 255, 0.3); /* Blanc translucide */
                 border-radius: 10px; /* Coins arrondis */
                 padding: 20px; /* Espacement interne */
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre pour l'effet visuel */
@@ -41,5 +41,27 @@
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center py-4 mt-5">
+            <!-- Droits d'auteur -->
+            <p>&copy; 2025 Llascer Simba. Tous droits réservés.</p>
+            <p>
+                Ce site est protégé par le droit d'auteur. Toute reproduction ou utilisation des contenus (textes, images, code) est strictement interdite sans autorisation préalable.
+            </p>
+
+            <!-- Crédits pour les ressources libres -->
+            <p>
+                Images et contenus graphiques issus de ressources libres de droits :
+                <a href="https://www.istockphoto.com/" target="_blank" class="text-warning">iStock</a>
+            </p>
+
+            <!-- Réseaux sociaux -->
+            <div class="d-flex justify-content-center mt-3">
+                <a href="https://www.instagram.com/llasc_simba/" target="_blank" class="btn btn-danger btn-sm mx-1">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+        </footer>
     </body>
 </html>

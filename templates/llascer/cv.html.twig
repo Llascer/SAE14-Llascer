@@ -2,7 +2,69 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1>{{ title }}</h1>
-    <p>Voici mon CV...</p>
+    <!-- En-tête -->
+    <header class="text-center mb-5 text-container">
+        <h1 style="font-size: 4.5rem; font-weight: bold;">Curriculum Vitae</h1>
+        <p class="lead">Poste rêvé : Dévellopeur Web</p>
+    </header>
+
+    <!-- Section Formations -->
+    <section class="mb-5">
+        <h2 class="text-primary mb-4"; style="font-weight: bold;">Formations</h2>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h5>IUT de Roanne</h5>
+                <p><strong>Diplôme :</strong> BUT Réseaux et Télécommunications (En cours)</p>
+                <p><strong>Année :</strong> 2024 - 2025</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Lycée de Petite-Terre</h5>
+                <p><strong>Diplôme :</strong> Bac Général, spécialité Maths et NSI</p>
+                <p><strong>Année :</strong> 2023</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Section Expériences Professionnelles -->
+    <section class="mb-5">
+        <h2 class="text-primary mb-4"; style="font-weight: bold;">Expériences Professionnelles</h2>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <p></p>
+            </li>
+            <li class="list-group-item">
+                <p></p>
+        </ul>
+    </section>
+
+    <!-- Section Compétences -->
+    <section class="mb-5">
+        <h2 class="text-primary mb-4"; style="font-weight: bold;">Compétences</h2>
+        <div class="row text-container" >
+            <div class="col-md-4">
+                <h5>Techniques</h5>
+                <ul>
+                    <li>Configuration des réseaux (Cisco, Mikrotik)</li>
+                    <li>Administration des systèmes (Linux, Windows Server)</li>
+                    <li>Développement web (HTML, CSS, Symfony)</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Langues</h5>
+                <ul>
+                    <li>Français : Langue maternelle</li>
+                    <li>Anglais : Intermédiaire</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Personnelles</h5>
+                <ul>
+                    <li>Esprit d'équipe</li>
+                    <li>Capacité d'analyse</li>
+                    <li>Résolution de problèmes</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 </div>
 {% endblock %}

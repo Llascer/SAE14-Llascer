@@ -3,8 +3,9 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 
 final class LlascerController extends AbstractController
 {
@@ -53,13 +54,37 @@ final class LlascerController extends AbstractController
             'title' => "Mon Portfolio"
         ]);
     }
-    //Page "Experiences"
-    #[Route('/llascer/experiences', name: 'app_experiences')]
-public function experiences(): Response
-{
-    return $this->render('llascer/experiences.html.twig', [
-        'title' => 'Mes Expériences'
-    ]);
+
+    // Page "Inscription"
+    #[Route('/llascer/inscription', name: 'app_inscription')]
+    public function inscription(): Response
+    {
+        return $this->render('llascer/inscription.html.twig', [
+            'title' => "Formulaire d'inscription"
+        ]);
+    }
+
+    // Générer le CV en PDF ou DOCX
+    #[Route('/llascer/generate-cv', name: 'generate_cv', methods: ['POST'])]
+    public function generateCv(Request $request): Response
+    {
+        $data = [
+            'nom' => $request->request->get('nom'),
+            'prenom' => $request->request->get('prenom'),
+            'email' => $request->request->get('email'),
+        ];
+
+        $format = $request->request->get('format');
+
+        if ($format === 'pdf') {
+            // Génération d'un PDF
+            return $this->render('cv/pdf_template.html.twig', $data);
+        } elseif ($format === 'docx') {
+            // Génération d'un DOCX
+            return $this->render('cv/docx_template.html.twig', $data);
+        }
+
+        return $this->redirectToRoute('app_inscription');
+    }
 }
 
-}
