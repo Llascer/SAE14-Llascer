@@ -76,15 +76,19 @@ final class LlascerController extends AbstractController
 
         $format = $request->request->get('format');
 
+        if (!in_array($format, ['pdf', 'docx'])) {
+            $this->addFlash('error', 'Format invalide sélectionné.');
+            return $this->redirectToRoute('app_inscription');
+        }
+
         if ($format === 'pdf') {
-            // Génération d'un PDF
             return $this->render('cv/pdf_template.html.twig', $data);
         } elseif ($format === 'docx') {
-            // Génération d'un DOCX
             return $this->render('cv/docx_template.html.twig', $data);
         }
 
         return $this->redirectToRoute('app_inscription');
     }
+
 }
 

@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{ nom }} {{ prenom }} - CV</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            margin: 5px 0;
-        }
-    </style>
-</head>
-<body>
-    <h1>Curriculum Vitae</h1>
-    <p><strong>Nom :</strong> {{ nom }}</p>
-    <p><strong>Prénom :</strong> {{ prenom }}</p>
-    <p><strong>Email :</strong> {{ email }}</p>
-</body>
-</html>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center">CV de {{ prenom }} {{ nom }}</h1>
+    <p>Email : {{ email }}</p>
+    <p>Ce fichier est un aperçu du CV généré en PDF.</p>
+</div>
+{% endblock %}
