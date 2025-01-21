@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\IOFactory;
 
 final class LlascerController extends AbstractController
 {
@@ -68,7 +72,8 @@ final class LlascerController extends AbstractController
     #[Route('/llascer/generate-cv', name: 'generate_cv', methods: ['POST'])]
     public function generateCv(Request $request): Response
     {
-        $data = [
+        // Récupération des données du formulaire
+        $cvData = [
             'nom' => $request->request->get('nom'),
             'prenom' => $request->request->get('prenom'),
             'email' => $request->request->get('email'),
@@ -76,17 +81,29 @@ final class LlascerController extends AbstractController
 
         $format = $request->request->get('format');
 
-        if (!in_array($format, ['pdf', 'docx'])) {
-            $this->addFlash('error', 'Format invalide sélectionné.');
-            return $this->redirectToRoute('app_inscription');
-        }
-
         if ($format === 'pdf') {
-            return $this->render('cv/pdf_template.html.twig', $data);
+            // Configuration de Dompdf pour générer un fichier PDF
+            $pdfOptions = new Options();
+            $pdfOptions->set('defaultFont', 'Arial');
+            $dompdf = new Dompdf($pdfOptions);
+
+            // Rendu du fichier HTML en PDF
+            $html = $this->renderView('cv/pdf_template.html.twig', $cvData);
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+
+            // Retourne le PDF généré en réponse
+            return new Response($dompdf->stream("cv.pdf", ["Attachment" => true]), 200, [
+                'Content-Type' => 'application/pdf',
+            ]);
         } elseif ($format === 'docx') {
-            return $this->render('cv/docx_template.html.twig', $data);
+            // Pour le moment, renvoie une réponse simple pour le format DOCX
+            return new Response("DOCX export not implemented yet.", 200);
         }
 
+        // Si le format est inconnu, redirection avec un message d'erreur
+        $this->addFlash('error', 'Format invalide.');
         return $this->redirectToRoute('app_inscription');
     }
 
