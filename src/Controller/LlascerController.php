@@ -72,7 +72,7 @@ final class LlascerController extends AbstractController
     #[Route('/llascer/generate-cv', name: 'generate_cv', methods: ['POST'])]
     public function generateCv(Request $request): Response
     {
-        // Récupération des données du formulaire
+        
         $cvData = [
             'nom' => $request->request->get('nom'),
             'prenom' => $request->request->get('prenom'),
@@ -82,27 +82,27 @@ final class LlascerController extends AbstractController
         $format = $request->request->get('format');
 
         if ($format === 'pdf') {
-            // Configuration de Dompdf pour générer un fichier PDF
+            
             $pdfOptions = new Options();
             $pdfOptions->set('defaultFont', 'Arial');
             $dompdf = new Dompdf($pdfOptions);
 
-            // Rendu du fichier HTML en PDF
+            
             $html = $this->renderView('cv/pdf_template.html.twig', $cvData);
             $dompdf->loadHtml($html);
             $dompdf->setPaper('A4', 'portrait');
             $dompdf->render();
 
-            // Retourne le PDF généré en réponse
+            
             return new Response($dompdf->stream("cv.pdf", ["Attachment" => true]), 200, [
                 'Content-Type' => 'application/pdf',
             ]);
         } elseif ($format === 'docx') {
-            // Pour le moment, renvoie une réponse simple pour le format DOCX
+            
             return new Response("DOCX export not implemented yet.", 200);
         }
 
-        // Si le format est inconnu, redirection avec un message d'erreur
+        
         $this->addFlash('error', 'Format invalide.');
         return $this->redirectToRoute('app_inscription');
     }

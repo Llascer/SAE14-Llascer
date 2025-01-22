@@ -2,7 +2,39 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1>{{ title }}</h1>
-    <p>Bienvenue sur mon Portfolio...</p>
+    <!-- Titre principal -->
+    <header class="text-center mb-5 text-container">
+        <h1 style="font-size: 4.5rem; font-weight: bold;">Mon E-Portfolio</h1>
+        <p class="lead">Explorez mes compétences et points forts illustrés par des exemples.</p>
+    </header>
+
+    <!-- Points forts -->
+    <section>
+        <!-- Point fort 1 -->
+        <div class="text-container mb-5">
+            <h2 class="text-primary text-center", style="font-weight: bold;">Configuration des Réseaux</h2>
+            <h3 style="font-weight: bold;">AC11.03 Configurer les fonctions de base du réseau local</h3>
+            <div class="d-flex flex-column align-items-center mb-3">
+                <img src="{{ asset('PF1.png') }}" alt="Configuration des réseaux 1" class="img-fluid" style="max-width: 80%; border: 2px solid #000; border-radius: 10px; margin-bottom: 15px;">
+                <img src="{{ asset('PF12.png') }}" alt="Configuration des réseaux 2" class="img-fluid" style="max-width: 80%; border: 2px solid #000; border-radius: 10px;">
+            </div>
+            <p>
+                Pour ma formation, j'ai configuré des VLANs sur un switch Cisco, j'ai créé deux VLANs et ensuite assigné des ports à ces derniers. J'ai créé le VLAN 3 nommé "administration_switch" et le VLAN 4 nommé "utilisateurs", et j'ai configuré les interfaces en mode accès. Cette expérience m'a permis de maîtriser les commandes de configuration VLAN et de comprendre la segmentation réseau, tout en observant l'importance de la sécurité et de la gestion du trafic.
+            </p>
+        </div>
+
+        <!-- Point fort 2 -->
+        <div class="text-container mb-5">
+            <h2 class="text-primary text-center", style="font-weight: bold;">Développement Web</h2>
+            <h3 style="font-weight: bold;">AC13.04 Connaître l’architecture et les technologies d’un site Web</h3>
+            <div class="d-flex justify-content-center mb-3">
+                <img src="{{ asset('PF22.png') }}" alt="Développement web 1" class="img-fluid" style="max-width: 45%; border: 2px solid #000; border-radius: 10px; margin-right: 10px;">
+                <img src="{{ asset('PF2.png') }}" alt="Développement web 2" class="img-fluid" style="max-width: 45%; border: 2px solid #000; border-radius: 10px;">
+            </div>
+            <p>
+                Créer un site web pendant ma formation m'a permis d'apprendre les langages HTML et CSS, renforçant ma compréhension du développement web. Cette expérience enrichissante, bien que prenante et parfois frustrante, m'a aidé à grandir professionnellement et personnellement. J'ai pu exprimer ma créativité en concevant un site unique. Travailler sur ce projet concret m'a donné une expérience pratique précieuse, renforçant ma maîtrise des concepts appris en classe.
+            </p>
+        </div>
+    </section>
 </div>
 {% endblock %}

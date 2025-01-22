@@ -2,38 +2,50 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1 class="text-center mb-5" style="font-size: 4.5rem; font-weight: bold;">Mes Loisirs</h1>
+    <!-- Section Présentation -->
+    <div class="text-container mb-5">
+        <h1 class="text-center mb-4" style="font-size: 4rem; font-weight: bold;">About Me</h1>
+        <p>
+            My name is Llascer Simba, and I am originally from Mayotte, a beautiful island in the Indian Ocean. 
+            I am currently a student at the IUT of Roanne, pursuing a Bachelor's degree in Networks and Telecommunications. 
+            My educational journey started at <strong>Collège Bouéni M'titi</strong> in Labattoir, where I built a strong academic foundation. 
+            Later, I attended <strong>Lycée de Petite-Terre</strong>, where I specialized in Mathematics and Computer Science (NSI) and obtained my high school diploma in 2023.
+        </p>
+    </div>
+
+    <!-- Titre de la section des loisirs -->
+    <h1 class="text-center mb-5" style="font-size: 4.5rem; font-weight: bold;">My Hobbies</h1>
 
     <!-- Section Informatique -->
     <div class="row mb-5 text-container">
         <div class="col-md-8">
-            <h2 style="font-weight: bold;">Informatique</h2>
+            <h2 style="font-weight: bold;">Information Technology</h2>
             <p>
-                Depuis que j'ai découvert le monde de l'informatique, il est devenu une véritable passion. J'aime explorer les nouvelles technologies, qu'il s'agisse de développement web, de réseaux ou de systèmes. Créer des projets me permet non seulement d'améliorer mes compétences, mais aussi de relever des défis techniques intéressants. 
-                L'informatique représente pour moi un moyen de connecter les idées et de résoudre des problèmes concrets.
+                Since I discovered the world of IT, it has become a real passion. I enjoy exploring new technologies, whether it is web development, networks, or systems. Creating projects not only allows me to enhance my skills but also to tackle interesting technical challenges.
+                For me, IT is a way to connect ideas and solve real-world problems.
             </p>
         </div>
         <div class="col-md-4 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('Informatique.jpg') }}" alt="Informatique" class="img-fluid" style="max-width: 90%; border: 2px solid #000; border-radius: 10px;">
+            <img src="{{ asset('Informatique.jpg') }}" alt="Information Technology" class="img-fluid" style="max-width: 90%; border: 2px solid #000; border-radius: 10px;">
         </div>
     </div>
 
     <!-- Section Jeux Vidéos -->
     <div class="row mb-5 text-container">
         <div class="col-md-8">
-            <h2 style="font-weight: bold;">Jeux Vidéos</h2>
+            <h2 style="font-weight: bold;">Video Games</h2>
             <p>
-                Les jeux vidéo font partie de mes passions. J'aime <strong>Overwatch</strong> pour ses stratégies complexes et l'importance du travail d'équipe. En jouant principalement Kiriko, je me concentre sur le soutien de mes coéquipiers tout en prenant des décisions rapides pour les aider à atteindre nos objectifs.
+                Video games are one of my favorite hobbies. I love <strong>Overwatch</strong> for its complex strategies and the importance of teamwork. As a Kiriko main, I focus on supporting my teammates while making quick decisions to help achieve our objectives.
             </p>
             <p>
-                Je consacre aussi beaucoup de temps à <strong>FIFA</strong>, un jeu où la collaboration est essentielle. Que ce soit en jouant ou en gérant une équipe dans le mode Carrière Manager, ce jeu combine réflexion et compétition, ce que je trouve particulièrement stimulant.
+                I also dedicate a lot of time to <strong>FIFA</strong>, a game where collaboration is essential. Whether I’m playing or managing a team in Career Mode, this game combines strategic thinking and competition, which I find particularly exciting.
             </p>
             <p>
-                Ces jeux m'offrent une expérience enrichissante en mêlant plaisir, stratégie, et travail d'équipe.
+                These games provide a rewarding experience by blending fun, strategy, and teamwork.
             </p>
         </div>
         <div class="col-md-4 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('Jeux.jpg') }}" alt="Jeux Vidéos" class="img-fluid" style="max-width: 90%; border: 2px solid #000; border-radius: 10px;">
+            <img src="{{ asset('Jeux.jpg') }}" alt="Video Games" class="img-fluid" style="max-width: 90%; border: 2px solid #000; border-radius: 10px;">
         </div>
     </div>
 
@@ -42,8 +54,8 @@
         <div class="col-md-8">
             <h2 style="font-weight: bold;">Football</h2>
             <p>
-                Le football est bien plus qu'un simple sport pour moi, c'est une véritable passion. J'aime non seulement suivre les grandes compétitions comme la Ligue des Champions, mais aussi jouer sur le terrain avec mes amis. 
-                Supporter d'équipes emblématiques comme le PSG, je suis toujours enthousiaste à l'idée de voir des matchs et de discuter des performances des joueurs. Le football m'apprend la discipline, le travail d'équipe et l'importance de ne jamais abandonner, des valeurs qui me motivent aussi dans d'autres aspects de ma vie.
+                Football is more than just a sport for me; it is a true passion. I enjoy not only following major competitions like the Champions League but also playing on the field with my friends.
+                As a fan of legendary teams like PSG, I am always excited to watch matches and discuss players' performances. Football has taught me discipline, teamwork, and the importance of never giving up—values that motivate me in other aspects of my life as well.
             </p>
         </div>
         <div class="col-md-4 d-flex align-items-center justify-content-center">
